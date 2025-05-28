@@ -77,7 +77,7 @@ steps:
             includeConfigs = ["runtimeClasspath", "compileClasspath"]
             skipConfigs = ["testCompileClasspath"]
             projectType = "application"
-            destination = file(".")
+            destination = file("tests/tck-build-logic")
             outputName = "artifactSBOM"
             outputFormat = "json"
             schemaVersion = "1.4"
