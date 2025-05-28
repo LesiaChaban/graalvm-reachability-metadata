@@ -59,7 +59,7 @@ steps:
     name: "Run Gradle cyclonedxBom in ./tests/tck-build-logic"
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-gradle-plugin/blob/master/README.md
-      cd /tests/tck-build-logic
+      cd tests/tck-build-logic
       cat <<EOF >> init.gradle
         initscript {
           repositories {
