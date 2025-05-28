@@ -22,6 +22,11 @@ steps:
     command: |
       export PATH=$JAVA_HOME/bin:$PATH
   - type: Command
+    name: "Download CycloneDx-cli executable and install dependencies"
+    command: |
+      wget https://github.com/CycloneDX/cyclonedx-cli/releases/download/v0.24.2/cyclonedx-linux-x64
+      yum install -y libicu
+  - type: Command
     name: "Run Gradle cyclonedxBom command"
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-gradle-plugin/blob/master/README.md
@@ -50,7 +55,45 @@ steps:
         }
       EOF
       ./gradlew --init-script init.gradle cyclonedxBom -info
+  - type: Command
+    name: "Run Gradle cyclonedxBom in ./tests/tck-build-logic"
+    command: |
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-gradle-plugin/blob/master/README.md
+      cd /tests/tck-build-logic
+      cat <<EOF >> init.gradle
+        initscript {
+          repositories {
+            maven {
+              url "https://plugins.gradle.org/m2/"
+            }
+          }
+          dependencies {
+            classpath "org.cyclonedx:cyclonedx-gradle-plugin:2.3.0"
+          }
+        }
+        allprojects {
+          apply plugin:org.cyclonedx.gradle.CycloneDxPlugin
+          cyclonedxBom {
+            includeConfigs = ["runtimeClasspath", "compileClasspath"]
+            skipConfigs = ["testCompileClasspath"]
+            projectType = "application"
+            destination = file("./tests/tck-build-logic")
+            outputName = "artifactSBOM"
+            outputFormat = "json"
+            schemaVersion = "1.4"
+          }
+        }
+      EOF
+      ./gradlew --init-script init.gradle cyclonedxBom -info
+      cd
+  - type: Command
+    name: "Merge multiple SBOMs using CycloneDX-cli"
+    command: |
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-cli/blob/main/README.md
+      chmod +x cyclonedx-linux-x64
+      ./cyclonedx-linux-x64 merge --input-files ./artifactSBOM.json ./tests/tck-build-logic/artifactSBOM.json  --output-file merged-bom.json
+      
 outputArtifacts:
   - name: artifactSBOM
     type: BINARY
-    location: ${OCI_PRIMARY_SOURCE_DIR}/artifactSBOM.json
+    location: ${OCI_PRIMARY_SOURCE_DIR}/merged-bom.json
