@@ -63,7 +63,7 @@ steps:
     command: |
       # For more details, visit https://github.com/CycloneDX/cyclonedx-gradle-plugin/blob/master/README.md
       cd tests/tck-build-logic
-      cat <<EOF >> init.gradle
+      cat <<EOF >> ./tests/tck-build-logic/init.gradle
         initscript {
           repositories {
             maven {
