@@ -87,7 +87,7 @@ steps:
           }
         }
       EOF
-      ./gradlew --init-script init.gradle cyclonedxBom -info
+      gradlew --init-script init.gradle cyclonedxBom -info
       cd
   - type: Command
     name: "Merge multiple SBOMs using CycloneDX-cli"
