@@ -137,6 +137,12 @@
     "versions" : [ "5.0.1" ]
   } ]
 }, {
+  "test-project-path" : "com.zaxxer/HikariCP/6.0.0",
+  "libraries" : [ {
+    "name" : "com.zaxxer:HikariCP",
+    "versions" : [ "6.0.0" ]
+  } ]
+}, {
   "test-project-path" : "commons-logging/commons-logging/1.2",
   "libraries" : [ {
     "name" : "commons-logging:commons-logging",
@@ -179,28 +185,28 @@
     "versions" : [ "2.16.11" ]
   } ]
 }, {
-  "test-project-path" : "io.netty/netty-common/4.1.80.Final",
-  "libraries" : [ {
-    "name" : "io.netty:netty-common",
-    "versions" : [ "4.1.80.Final" ]
-  } ]
-}, {
-  "test-project-path" : "io.netty/netty-transport/4.1.80.Final",
-  "libraries" : [ {
-    "name" : "io.netty:netty-transport",
-    "versions" : [ "4.1.80.Final" ]
-  } ]
-}, {
   "test-project-path" : "io.netty/netty-common/4.1.115.Final",
   "libraries" : [ {
     "name" : "io.netty:netty-common",
     "versions" : [ "4.1.115.Final" ]
   } ]
 }, {
+  "test-project-path" : "io.netty/netty-common/4.1.80.Final",
+  "libraries" : [ {
+    "name" : "io.netty:netty-common",
+    "versions" : [ "4.1.80.Final" ]
+  } ]
+}, {
   "test-project-path" : "io.netty/netty-transport/4.1.115.Final",
   "libraries" : [ {
     "name" : "io.netty:netty-transport",
     "versions" : [ "4.1.115.Final" ]
+  } ]
+}, {
+  "test-project-path" : "io.netty/netty-transport/4.1.80.Final",
+  "libraries" : [ {
+    "name" : "io.netty:netty-transport",
+    "versions" : [ "4.1.80.Final" ]
   } ]
 }, {
   "test-project-path" : "io.opentelemetry/opentelemetry-exporter-jaeger/1.19.0",
@@ -291,6 +297,12 @@
   "libraries" : [ {
     "name" : "org.apache.activemq:activemq-client",
     "versions" : [ "5.18.1" ]
+  } ]
+}, {
+  "test-project-path" : "org.apache.activemq/activemq-client/6.0.0",
+  "libraries" : [ {
+    "name" : "org.apache.activemq:activemq-client",
+    "versions" : [ "6.0.0" ]
   } ]
 }, {
   "test-project-path" : "org.apache.activemq/artemis-jms-client/2.28.0",
@@ -443,16 +455,16 @@
     "versions" : [ "10.15.0" ]
   } ]
 }, {
-  "test-project-path": "org.flywaydb/flyway-core/10.20.0",
-  "libraries": [ {
-        "name": "org.flywaydb:flyway-core",
-        "versions": [ "10.20.0" ]
+  "test-project-path" : "org.flywaydb/flyway-core/10.20.0",
+  "libraries" : [ {
+    "name" : "org.flywaydb:flyway-core",
+    "versions" : [ "10.20.0" ]
   } ]
 }, {
-  "test-project-path": "org.flywaydb/flyway-core/10.20.1",
-  "libraries": [ {
-    "name": "org.flywaydb:flyway-core",
-    "versions": [ "10.20.1" ]
+  "test-project-path" : "org.flywaydb/flyway-core/10.20.1",
+  "libraries" : [ {
+    "name" : "org.flywaydb:flyway-core",
+    "versions" : [ "10.20.1" ]
   } ]
 }, {
   "test-project-path" : "org.flywaydb/flyway-core/9.0.1",
@@ -513,6 +525,12 @@
   "libraries" : [ {
     "name" : "org.hibernate.orm:hibernate-core",
     "versions" : [ "6.6.0.Final" ]
+  } ]
+ }, {
+  "test-project-path" : "org.hibernate.orm/hibernate-core/7.0.0.Final",
+  "libraries" : [ {
+    "name" : "org.hibernate.orm:hibernate-core",
+    "versions" : [ "7.0.0.Final" ]
   } ]
 }, {
   "test-project-path" : "org.hibernate.orm/hibernate-envers/6.1.1.Final",
